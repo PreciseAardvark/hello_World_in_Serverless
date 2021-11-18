@@ -1,0 +1,23 @@
+service: microservicio1
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  provider.lambdaHashingVersion: 20201221
+  #lambdaHashingVersion: 2020122s1
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events: 
+      - http:
+          path: hello
+          method: get
+  
+          
+plugins:
+  - serverless-offline
+
